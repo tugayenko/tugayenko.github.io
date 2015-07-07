@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lesson 01 - Oleksandr Tugayenko</title>
+    <script type="text/javascript">
+        // alert("Hello world1");
+        // document.write("Hello world again!");
+
+        var lastName;
+        var firstName;
+        var middleName;
+        var bDate;
+        var marStatus;
+        function exc1_0(){
+            lastName = prompt("Enter your Last Name, please","Uknown");
+            firstName = prompt("Enter your First Name, please","Uknown");
+            middleName = prompt("Enter your Middle Name, please","Uknown");
+            bDate = prompt("Enter your birthday Date, please","01.01.2000");
+            marStatus = prompt("Enter your marritage status, please","single");
+            document.write("HomeTask 1.1"+"<br>"+
+                    "Last Name = "+lastName+"<br>"+
+                    "First Name = "+firstName+"<br>"+
+                    "Middle Name = "+middleName+"<br>"+
+                    "Bithday Date = "+bDate+"<br>"+
+                    "Marritage status = "+marStatus);
+        }
+        function exc1_1(){
+            num1 = prompt("Enter first number, please",1);
+            num2 = prompt("Enter second number, please",2);
+            num3 = prompt("Enter third number, please",3);
+            num4 = prompt("Enter fourth number, please",4);
+            document.write("HomeTask 1.2"+"<br>"+
+                    "Average = "+(parseInt(num1)+parseInt(num2)+parseInt(num3)+parseInt(num4))/4);
+        }
+        function exc1_2(){
+            S = (document.getElementById("pyrP").value) *(document.getElementById("pyrApof").value) / (2);
+            H = document.getElementById("pyrH").value;
+            document.write("S=" + S);
+            document.write("<br>V = " + S*H/3);
+            document.write(H);
+        }
+        function exc1_3(){
+        }
+        function exc1_4(){
+            x = 6;
+            y = 15;
+            z = 4;
+            x += y - x++ * z;
+            document.write(x);
+            document.write("<br>");
+
+            x = 6;
+            y = 15;
+            z = 4;
+            z = -- x - y * 5;
+            document.write(z);
+            document.write("<br>");
+
+            x = 6;
+            y = 15;
+            z = 4;
+            y /= x + 5 % z;
+            document.write(y);
+            document.write("<br>");
+
+            x = 6;
+            y = 15;
+            z = 4;
+            z = x++ + y * 5;
+            document.write(z);
+            document.write("<br>");
+
+            x = 6;
+            y = 15;
+            z = 4;
+            x = y - x++ * z;
+            document.write(x);
+            document.write("<br>");
+        }
+    </script>
+</head>
+<body>
+    <a id="tamLink" title="Excersize 1.0"
+       href="javascript:void(0);" onclick="exc1_0();return false;">HomeTask 1.0</a><br/>
+    <a id="tamLink" title="Excersize 1.1"
+       href="javascript:void(0);" onclick="exc1_1();return false;">HomeTask 1.1</a><br/>
+    <a id="tamLink" title="Excersize 1.2"
+       href="javascript:void(0);" onclick="exc1_2();return false;">HomeTask 1.2</a><br/>
+    <input type="text" id="pyrP"/><br/>
+    <input type="text" id="pyrApof"/><br/>
+    <input type="text" id="pyrH"/><br/><br/>
+    <a id="tamLink" title="Excersize 1.3"
+       href="javascript:void(0);" onclick="exc1_3();return false;">HomeTask 1.3</a><br/>
+    <input type="text" id="calcNum1"/><br/>
+    <input type="text" id="calcNum2"/><br/><br/>
+    <a id="tamLink" title="Excersize 1.4"
+       href="javascript:void(0);" onclick="exc1_4();return false;">HomeTask 1.4</a><br/>
+</body>
+</html>
