@@ -2,90 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Lesson 02 - Oleksandr Tugayenko</title>
-<script type="text/javascript">
-//---------- Lesson 2.1 ----------
-function exc2_1(){
-var numberStatus = "Число:\n";
-var numberNatural = 0;
-var a = +prompt("Введите число:","0");
-if (Number.isInteger(a)){
-numberStatus += " - целое\n";
-numberNatural++;
-}
-else {
-numberStatus += " - НЕ целое\n";
-}
-if (a > 0 ){
-numberStatus += " - положительное\n";
-numberNatural++;
-}
-else {
-numberStatus += " - НЕ положительное\n";
-}
-if (numberNatural == 2 ){
-numberStatus += " - натуральное";
-}
-else {
-numberStatus += " - НЕ натуральное";
-}
-alert(numberStatus);
-}
-//---------- Lesson 2.2 ----------
-function exc2_2(){
-alert("Извините, задание в процессе написания...");
-}
-//---------- Lesson 2.3 ----------
-function exc2_3(){
-var numTries = 0;
-var numMaxTries = 5;
-var numRandom = parseInt(Math.floor(Math.random() * (100)) + 1);
-alert(numRandom);
-while (numTries < numMaxTries){
-var a = prompt("Введите число:","0");
-if (a == null){
-alert("Вы прервали игру.");
-break;
-}
-a = +a;
-if (a == numRandom){
-alert("Угадали. Вы выиграли!");
-break;
-}
-else {
-numTries++;
-if ( numTries < numMaxTries){
-var strLessMore = "меньше";
-if (a < numRandom){
-strLessMore = "больше";
-}
-alert("Не угадали!\nПопробуйте еще раз." +
-"\nЗагаданное число "+ strLessMore +
-"\nУ Вас осталось попыток:"+ (numMaxTries-numTries));
-}
-else {
-alert("Вы проиграли!\nЗагаданное число: "+numRandom);
-}
-}
-}
-}
-</script>
+<title>Javascript - Oleksandr Tugayenko</title>
 </head>
 <body>
-<!-- Напишите программу, которая будет давать ответы на вопросы:
-- является ли число целым;
-- положительным;
-- натуральным
--->
-<p><a id="tamLink" title="Lesson 2.1" href="javascript:void(0);" onclick="exc2_1();return false;">Lesson 2.1 - Проверка числа</a></p>
-<!-- Напишите программу работы машины по продаже напитков. Пользователь выбирает напиток (вид кофе или чая),
-сахар, сливки, размер стаканчика, а программа рассчитывает стоимость заказа и выводит его на экран.
--->
-<p><a id="tamLink" title="Lesson 2.2" href="javascript:void(0);" onclick="exc2_2();return false;">Lesson 2.2 - Работа машины по продаже напитков</a></p>
-<!--
-Напишите программу «Угадай число». Пользователь должен угадать число в диапазоне от 0 до 100, за 5 попыток,
-при каждой попытке, он получает информацию: больше введённое им значение или меньше от загаданного программой.
--->
-<p><a id="tamLink" title="Lesson 2.3" href="javascript:void(0);" onclick="exc2_3();return false;">Lesson 2.3 - «Угадай число»</a></p>
+<p>Oleksandr Tugayenko homework for the course Javascript</p>>
+<p><a id="tamLink" title="Lesson 1" href="/lesson_01/lesson_01.html">Lesson 1</a></p>
+<p><a id="tamLink" title="Lesson 2" href="/lesson_01/lesson_01.html">Lesson 2</a></p>
+<p><a id="tamLink" title="Lesson 3" href="/lesson_01/lesson_01.html">Lesson 3</a></p>
 </body>
 </html>
