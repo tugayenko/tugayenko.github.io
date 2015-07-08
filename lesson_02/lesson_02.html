@@ -43,7 +43,7 @@
  */
 function exc2_2(){
     var price = 0;
-    var drink = prompt("Введите номер напитка:" +
+    var drink = +prompt("Выберите напиток:" +
             "\n 1 - черный чай" +
             "\n 2 - зеленый чай" +
             "\n 3 - эспрессо" +
@@ -54,29 +54,56 @@ function exc2_2(){
         switch (drink){
             case 1:
             case 2:{
-                price += 2;
+                price = 2;
                 break;
             }
             case 3:
             case 4:{
-                price += 5;
+                price = 5;
                 break;
             }
             case 5:{
-                price += 6;
+                price = 6;
                 break;
             }
             case 6:{
-                price += 7;
+                price = 7;
                 break;
             }
             default:
             {
-                alert("Неверный выбор.");
+                price = 5;
+                alert("Неверный выбор. Будет приготовлен эспрессо");
                 break;
             }
         }
-        alert("Внесите:" + price + " грн");
+        if (prompt("С Сахаром? \nОК - да, Отмена - нет","1")){
+            price += 0.5;
+        }
+        if (prompt("Со сливками? \nОК - да, Отмена - нет","1")){
+            price += 1;
+        }
+        var cupSize = +prompt("Выберите размер стаканчика:"+
+                "\n1 - 150ml" +
+                "\n2 - 200ml" +
+                "\n3 - 250ml","2");
+        switch (cupSize){
+            //для маленького стаканчика отнимем 50коп
+            case 1:{
+                price += -0.5;
+                break;
+            }
+
+            // case 2: для стандартного стаканчика ничего не делаем
+
+            //для большого стаканчика добавим 50коп
+            case 3:{
+                price += 0.5;
+                break;
+            }
+        }
+
+        alert("Внесите: " + price + " грн");
     }
     else {
         alert("До свидания! Ждем в следующий раз...");
@@ -92,7 +119,7 @@ function exc2_2(){
             var numTries = 0;
             var numMaxTries = 5;
             var numRandom = parseInt(Math.floor(Math.random() * (100)) + 1);
-            alert(numRandom);
+            alert("Подсказка: загаданное число = " + numRandom);
             while (numTries < numMaxTries){
                 var a = prompt("Введите число:","0");
                 if (a == null){
