@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 02 - Oleksandr Tugayenko</title>
+    <script type="text/javascript">
+
+        function GenerateRndArray(arrLength){
+            var arr = [];
+            for(i = 0; i < arrLength; i++){
+                arr.push(Math.floor(Math.random()*1000));
+            }
+            return arr;
+        }
+/*
+ 1) Задайте произвольный массив и реализуйте поиск в нем наибольшего и наименьшего числа.
+ */
+        function Lesson_3_1(){
+            var minVal = Number.POSITIVE_INFINITY;
+            var maxVal  = Number.NEGATIVE_INFINITY;
+            var arrLength = prompt("Введите длину массива: ", "10");
+            if (arrLength != null) {
+                arr = GenerateRndArray(arrLength);
+                for (i = 0; i < arr.length; i++) {
+                    if (arr[i] > maxVal) {
+                        maxVal = arr[i];
+                    }
+                    if (arr[i] < minVal) {
+                        minVal = arr[i];
+                    }
+                }
+                alert("Исходный массив: " + arr +
+                        "\nMin = " + minVal +
+                        "\nMax = " + maxVal);
+            }
+        }
+
+/*
+ 2)	Найдите и удалите из массива [“Mike”,” John”, “Ben”, “Terry”, “David”, “Steeve”, ”John”, “Adrien”, “Terry”, “Nik”, “Bob”, “Ben” ],
+ повторяющиеся имена. Результат выведете на экран.
+ */
+        function Lesson_3_2(){
+            var arr = ["Mike","John", "Ben", "Terry", "David", "Steeve", "John", "Adrien", "Terry", "Nik", "Bob", "Ben"];
+            var arr1 = arr.slice();
+            for(i = 0; i < (arr.length-1); i++){
+                for(j = arr.length; j > i; j--){
+                    if (arr[i] == arr[j]){
+                        arr.splice(j,1);
+                    }
+                }
+            }
+            alert("Исходный массив:" +
+            "\n" + arr1 +
+            "\n\nОчищенный массив:" +
+            "\n" + arr);
+        }
+
+/*
+ 3)	Изучите самостоятельно и напишите алгоритм сортировки массива вставками.
+*/
+        function Lesson_3_3(){
+            var arrLength = prompt("Введите длину массива: ", "10");
+            var key;
+            var i,j;
+            if (arrLength != null) {
+                var arr = GenerateRndArray(arrLength);
+                var arr1 = arr.slice();
+                for (i = 1; i < arr.length; i++){
+                    key = arr[i];
+                    j = i-1;
+                    while (j>-1 && (arr[j] > key)){
+                        arr[j+1] = arr[j];
+                        j--;
+                        arr[j+1] = key;
+                    }
+                }
+                alert("Исходный массив:" +
+                        "\n" + arr1 +
+                        "\n\nОтсортированный массив:" +
+                        "\n" + arr);
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <p><a id="tamLink" title="Lesson 3.1" href="javascript:void(0);" onclick="Lesson_3_1();return false;">Lesson 3.1 - Сортировка массива</a></p>
+
+    <p><a id="tamLink" title="Lesson 3.2" href="javascript:void(0);" onclick="Lesson_3_2();return false;">Lesson 3.2 - Удаление из массива повторяющихся элементов</a></p>
+
+    <p><a id="tamLink" title="Lesson 3.3" href="javascript:void(0);" onclick="Lesson_3_3();return false;">Lesson 3.3 - Сортировка массива вставками</a></p>
+</body>
+</html>
