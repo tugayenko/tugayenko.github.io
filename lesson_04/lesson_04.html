@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 04 - Oleksandr Tugayenko</title>
+    <script type="text/javascript">
+
+/*
+ 1)	Напишете функцию, которая будет принимать в качестве аргумента число и определять делится или оно на: 2, 5, 20, 40, одновременно.
+ */
+        function OstZero(delimoe,delitel){
+            if (delimoe % delitel == 0){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        function Lesson_4_1(){
+            var num = prompt("Введите число:","120");
+            if (num != null){
+                if (OstZero(num,2) && OstZero(num,5) && OstZero(num,20) && OstZero(num,40)){
+                    alert("Число " + num + " делится \n одновременно нацело на 2, 5, 20, 40.");
+                }
+                else{
+                    alert("Число " + num + " НЕ ДЕЛИТСЯ \n одновременно нацело на 2, 5, 20, 40.");
+                }
+            }
+        }
+
+/*
+ 2)	Напишите функцию, которая принимает в качестве аргументов значения катетов, а возвращает значение гипотенузы
+ прямоугольного треугольника.
+ */
+        function CalcGipotenuza(kat1,kat2){
+            var gipotenuza = Math.sqrt(Math.pow(kat1,2)+Math.pow(kat2,2));
+            return gipotenuza;
+        }
+
+        function Lesson_4_2(){
+            var kat1 = +prompt("Введите первый катет прямоугольного треугольника: ","3");
+            var kat2 = +prompt("Введите второй катет прямоугольного треугольника:: ","4");
+            if( kat1 != null && kat2 != null) {
+                alert("Гипотенуза прямоугольного треугольника= " + CalcGipotenuza(kat1, kat2));
+            }
+            else{
+                alert("Исходные данные введены не верно. Попробуйте еще раз.");
+            }
+        }
+
+/*
+ 3)	Напишете программу, которая будет находить факториал числа 20, используйте для этого рекурсию..
+*/
+
+        function Lesson_4_3(){
+
+            function Factorial(n){
+                if (n == 0){
+                    return 1;
+                }
+                else {
+                    return n*Factorial(n-1);
+                }
+            }
+
+            var fact20 = Factorial(20);
+            alert("20! = " + fact20);
+        }
+    </script>
+</head>
+<body>
+
+    <p><a id="tamLink" title="Lesson 4.1" href="javascript:void(0);" onclick="Lesson_4_1();return false;">Lesson 4.1 - Делится ли число на: 2, 5, 20, 40 одновременно</a></p>
+
+    <p><a id="tamLink" title="Lesson 4.2" href="javascript:void(0);" onclick="Lesson_4_2();return false;">Lesson 4.2 - Вычисление гипотенузы по катетам</a></p>
+
+    <p><a id="tamLink" title="Lesson 4.3" href="javascript:void(0);" onclick="Lesson_4_3();return false;">Lesson 4.3 - Вычисление 20! через рекурсию</a></p>
+</body>
+</html>
