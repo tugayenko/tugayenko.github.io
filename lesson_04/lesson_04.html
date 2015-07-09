@@ -18,7 +18,7 @@
         }
 
         function Lesson_4_1(){
-            var num = prompt("Введите число:","120");
+            var num = +prompt("Введите число:","120");
             if (num != null){
                 if (OstZero(num,2) && OstZero(num,5) && OstZero(num,20) && OstZero(num,40)){
                     alert("Число " + num + " делится \n одновременно нацело на 2, 5, 20, 40.");
