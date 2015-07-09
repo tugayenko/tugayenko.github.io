@@ -42,11 +42,11 @@
 		for (var val in Person){
 			if (typeof(Person[val]) == "object"){
 				for (var inval in Person[val]){
-					document.write("<p style='color:green'> " + Person[val][inval] + "</p>");
+					document.write("<font color='green'>&nbsp&nbsp" + Person[val][inval] + "</font><br/>");
 				}
 			}
 			else {
-				document.write("<p style='color:blue'>" + Person[val] + "</p>");
+				document.write("<font color='blue'>" + Person[val] + "</font><br/>");
 			}
 		}
 		
