@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 05 - Oleksandr Tugayenko</title>
+    <script type="text/javascript">
+
+/*-------------------------------------------------------------------------------------------------------------
+ 1)	Напишите функцию, которая будет в качестве аргумента принимать объект и проводить поиск в нем свойства со значение
+ «true», если оно найдено выводится сообщений «В проверяемом объекте найдено свойство true».
+ */
+        function ConvertObjToStr(obj){
+            var result = "";
+            for (var val in obj){
+                if (typeof(obj[val]) == "object"){
+                    for (var inval in obj[val]){
+                        result += obj[val][inval] + " | ";
+                    }
+                }
+                else {
+                    result += obj[val] + " | ";
+                }
+            }
+            return result;
+        }
+
+        function IsObjectHasTrue(obj){
+            for (var val in obj){
+                if ((obj[val]) == true){
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function PrintObjHasTrue(obj){
+            if(IsObjectHasTrue(obj)){
+                alert("Объект:\n" +ConvertObjToStr(obj)+ "\n\nсодержит 'true'");
+            }
+            else{
+                alert("Объект:\n" +ConvertObjToStr(obj)+ "\n\nНЕ содержит 'true'");
+            }
+        }
+
+        function Lesson_5_1(){
+            var objHasTrue = {a:false, b:5, c:"test",d:true};
+            var objNoTrue = {a:"string", b:7, c: false};
+
+            //object objHasTrue
+            PrintObjHasTrue(objHasTrue);
+
+            //object objNoTrue
+            PrintObjHasTrue(objNoTrue);
+        }
+
+/*-------------------------------------------------------------------------------------------------------------
+ 2)      Разработайте функцию-конструктор, которая будет создавать объект Human(человек) создайте массив объектов и
+ реализуйте функцию, которая будет сортировать элементы массива по значению свойства Age по возрастанию или
+ по убыванию.
+ */
+        function HumanOld(name,age){
+            this.name = name;
+            this.age = age;
+            this.print = function(){
+                return (this.name + " - " + this.age);
+            }
+        }
+
+        function ArrayOfHumanToStr(arr){
+            var result = "";
+            for (i = 0; i< arr.length; i++){
+                result += arr[i].print() + " | ";
+            }
+            return result;
+        }
+
+        function SortObjArrByField(arr,sortField){
+            //отсортируем методом вставки из 3-го урока, сравнивая по Human.age
+            var objkey,key;
+            var i,j;
+            for (i = 1; i < arr.length; i++){
+                objkey = arr[i];
+                key = arr[i][sortField];
+                j = i-1;
+                while (j>-1 && (arr[j][sortField] > key)){
+                    arr[j+1] = arr[j];
+                    j--;
+                    arr[j+1] = objkey;
+                }
+            }
+            //return arr;
+        }
+
+        function Lesson_5_2(){
+            var human1 = new HumanOld("Alex",40);
+            var human2 = new HumanOld("Joe",30);
+            var human3 = new HumanOld("Peter",20);
+            var human4 = new HumanOld("Michael",16);
+            var arr = [human1,human2,human3,human4];
+            var arr1 = arr.slice();
+            SortObjArrByField(arr1,"age");
+            alert("Изначальный массив:\n" + ArrayOfHumanToStr(arr) +
+                    "\n\nОтсортированный массив по возрасту:\n"+ArrayOfHumanToStr(arr1));
+        }
+
+/*-------------------------------------------------------------------------------------------------------------
+ 3)      Разработайте функцию-конструктор, которая будет создавать объект Human(человек) добавьте на свое усмотрение
+ свойства и методы в этот объект. Подумайте какие методы и свойства следует сделать уровня экземпляра, а какие
+ уровня функции-конструктора.
+*/
+
+        function Lesson_5_3(){
+
+            Human.count = 0;//how many Humans created;
+            Human.descr = " * name - Имя" +
+                    "\n * lastName - Фамилия" +
+                    "\n * dateOfBirthday - Дата Рождения" +
+                    "\n * City - Город" +
+                    "\n * Street - Улица" +
+                    "\n * House - Дом" +
+                    "\n * Office - Квартира";//description to Human
+
+            function Human(Name,LastName,DateOfBirthday,City,Street,House,Office){
+                this.name = Name;
+                this.lastName = LastName;
+                this.dateOfBirthday = DateOfBirthday;
+                this.city = City;
+                this.street = Street;
+                this.house = House;
+                this.office = Office;
+
+                this.print = function(){
+                    return (this.name + " " + this.lastName +
+                            " " + this.dateOfBirthday + " " + this.city + " " + this.street + " " +
+                            this.house + " " +this.office);
+                };
+
+                this.getTitle = function() {
+                    return this.name + " " +this.lastName;
+                };
+
+                this.getFullAddress = function() {
+                    return this.City + ", " +this.street + " street," + this.house + ", office "+ this.office;
+                };
+                Human.count++; //inc the number of created Humans
+            }
+
+            var human1 = new Human("Alex","White","01.01.1980","Washington","2nd","8","45");
+            var human2 = new Human("Jack","Black","01.01.1975","New Arlengton","5th","4","39");
+
+            alert("Всего создано Human: " + Human.count +
+                    "\nДоступные поля и методы объекта Human\n" + Human.descr +
+                    "\n\nПервый человек:\n" + human1.print() +
+                    "\n\nВторой человек:\n" + human2.print());
+        }
+    </script>
+</head>
+<body>
+
+    <p><a id="tamLink" title="Lesson 5.1" href="javascript:void(0);" onclick="Lesson_5_1();return false;">Lesson 5.1 - Поиск в объекте поля со значение "true"</a></p>
+
+    <p><a id="tamLink" title="Lesson 5.2" href="javascript:void(0);" onclick="Lesson_5_2();return false;">Lesson 5.2 - Сортировка массива из Human по возрасту</a></p>
+
+    <p><a id="tamLink" title="Lesson 5.3" href="javascript:void(0);" onclick="Lesson_5_3();return false;">Lesson 5.3 - Создание функции-конструктора с разными уровнями свойств</a></p>
+</body>
+</html>
