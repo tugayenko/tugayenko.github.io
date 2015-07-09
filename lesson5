@@ -31,22 +31,22 @@
 		Person.Name = prompt("Введите Имя:","");
 		Person.LastName = prompt("Введите Фамилию:","");
 		Person.DateOfBirth = prompt("Введите Дату рождения:","");
-		Person.Adr.Sity = prompt("Введите Город:","");
+		Person.Adr.City = prompt("Введите Город:","");
 		Person.Adr.Street = prompt("Введите Улицу:","");
 		Person.Adr.House = prompt("Введите Дом:","");
 		Person.Adr.Office = prompt("Введите Офис:","");
 		
 		//
 		
-		
+		//let's print all Person's data
 		for (var val in Person){
 			if (typeof(Person[val]) == "object"){
 				for (var inval in Person[val]){
-					document.write("  -" + Person[val][inval] + "<br/>");
+					document.write("<p style='color:green'> " + Person[val][inval] + "</p>");
 				}
 			}
 			else {
-				document.write(Person[val] + "<br/>");
+				document.write("<p style='color:blue'>" + Person[val] + "</p>");
 			}
 		}
 		
