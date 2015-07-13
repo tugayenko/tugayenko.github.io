@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 05 - Oleksandr Tugayenko</title>
+    <script type="text/javascript">
+	function addParagraph(){
+		var testDiv = document.getElementById("testDiv");
+		testDiv.innerHTML += "<p>Added Paragraph " +((document.querySelectorAll("p")).length+1)+ "-й </p>";
+	}
+
+	function delParagraph(){
+		var delPar = document.querySelectorAll("p");
+		delPar[delPar.length-1].remove();
+	}
+	
+    </script>
+</head>
+<body>
+<div id = "testDiv">TestDiv</div>
+<input type="button" onclick="delParagraph()" value="delete paragraph"><br/><br/>
+<input type="button" onclick="addParagraph()" value="add paragraph"><br/>
+
+
+</body>
+</html>
