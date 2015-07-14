@@ -1,0 +1,7 @@
+CSS
+display: block | inline | inline-block | none ...
+
+float: left | right | none | inherit
+
+position: absolute | fixed | relative | static | inherit
+

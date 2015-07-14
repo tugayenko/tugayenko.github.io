@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="tam.css">
+
+    <script type="text/javascript">
+
+        function showMenuProducts(layer){
+            var myLayer = document.getElementById(layer);
+            if(myLayer.style.display=="none"){
+                myLayer.style.display="block";
+                myLayer.backgroundPosition="top";
+            } else {
+                myLayer.style.display="none";
+            }
+        }
+
+        function showElement(layer){
+            var myLayer = document.getElementById(layer);
+            if(myLayer.style.display=="none"){
+                myLayer.style.display="block";
+                myLayer.backgroundPosition="top";
+            } else {
+                myLayer.style.display="none";
+            }
+        }
+
+        function overMenuTop(elMenu,elAction){
+            var elem = document.getElementById(elMenu);
+            switch (elAction) {
+                case "over":
+                {
+                    elem.style.background = "#ffa687";
+                    elem.style.color = "#fff";
+                    break;
+                }
+                case "out":
+                {
+                    elem.style.background = "#fff";
+                    elem.style.color = "#000";
+                    break;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div id="top_black">
+    <span id="top_phone">CUSTOM CARE 888-23-4567</span>
+    <span id="top_currency">currency</span>
+</div>
+
+<div id="top_white">
+    <div id="top_logo">&nbsp;</div>
+    <div class="topMenu">basket</div>
+    <div class="topMenu">contacts</div>
+    <div class="topMenu">shopping</div>
+    <div class="topMenu" id="menuProducts" onmouseover="overMenuTop('menuProducts','over')" onmouseout="overMenuTop('menuProducts','out')" onclick="showMenuProducts('v-menu')">products
+        <ul id="v-menu" class="v-menu" style="display:none; text-align: left; color: white;background: #ffa687;">
+            <li><a href="#">women</a></li>
+            <li><a href="#">men</a></li>
+            <li><a href="#">children</a></li>
+        </ul>
+    </div>
+    <div class="topMenu">home</div>
+ </div>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+/* ul li{
+    list-style-type:none;
+    display:inline;
+}
+
+li a{
+    display:block;
+    float:left
+}
+
+li  a{
+    font-family:Tahoma,Helvetica,sans-serif;
+    text-decoration:none;
+    color: #ffffff;
+}
+
+li a{
+    display:block;
+    float:left;
+    padding:4px 10px;
+    background:#193D6A
+}
+*/
+#top_black{
+    display: block;
+    float: top;
+    color: #fff;
+    background: #000;
+    height: 30px;
+    width: 100%;
+
+}
+#top_white{
+    /*display: table-cell;*/
+    float: top;
+    font: normal 16px arial;
+    color: #000;
+    background: #fffddd;
+    height: 106px;
+    width: 100%;
+    /*vertical-align: middle;*/
+}
+#top_logo{
+    background: url(../images/lookshop.png) no-repeat;
+    /* float: top;*/
+    position: absolute;
+    left:110px;
+    top: 43px;
+    height: 30px;
+    width: 130px;
+}
+#top_phone{
+    position:absolute;
+    left: 115px;
+}
+#top_currency{
+    position:absolute;
+    right: 100px;
+}
+div.topMenu{
+    float: right;
+    top: 43px;
+    width: 98px;
+    height: 30px;
+    text-align: center;
+}
+div#menuProducts{
+
+}
+.v-menu{
+
+}
+.v-menu a{
+    color: white;
+    text-decoration: none;
+}
