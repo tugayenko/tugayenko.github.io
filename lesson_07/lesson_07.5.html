@@ -22,6 +22,7 @@
             else{
                 runDiv.innerHTML = strMessage;
                 divWidth = runDiv.clientWidth;
+                divX = -divWidth;
                 setInterval(runningString,2);
             }
         };
@@ -29,18 +30,15 @@
         function runningString(){
             divX++;
             if (divX > window.innerWidth){
-                divX = 0;
+                divX = -divWidth;
             }
             runDiv.style.left = divX+"px";
-
         };
 
     </script>
 </head>
-<body>
+<body style="overflow:hidden;white-space: nowrap;" >
     <p>Lesson 7.5</p>
-    <div style="white-space: nowrap; overflow: hidden">
     <div id="runDiv" style="position: absolute;display: inline-block; overflow: hidden; color: green; left: 0px; top: 100px">Running String</div>
-        <div>
 </body>
 </html>
