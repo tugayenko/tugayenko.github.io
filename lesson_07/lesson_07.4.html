@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 07.4 - Oleksandr Tugayenko</title>
+    <script type="text/javascript">
+
+/*-------------------------------------------------------------------------------------------------------------
+ Задание 4
+ Создайте страницу с тремя ссылками: «JS Урок 1», «JS Урок 2», «JS Урок 3».
+ При нажатии по каждой из ссылок должно отображаться окно с описанием соответствующих уроков этого курса.
+ Если окно с описание в данный момент отображается, текст ссылки должен быть «JS Урок № (открыт)».
+ При повторном нажатии на ссылку окно должно исчезать и текст ссылки должен меняться на исходный.
+ */
+        var les1,les2,les3;
+        var w1,w2,w3;
+        window.onload = function(){
+            les1 = document.getElementById("lesson1");
+            les2 = document.getElementById("lesson2");
+            les3 = document.getElementById("lesson3");
+            les1.onclick = showDescription1;
+            les2.onclick = showDescription2;
+            les3.onclick = showDescription3;
+        };
+
+        function showDescription1(){
+            w1 = showDescription(1, "Описание 1-го урока",w1,les1);
+        }
+
+        function showDescription2(){
+            w2 = showDescription(2, "Описание 2-го урока",w2,les2);
+        }
+
+        function showDescription3(){
+            w3 = showDescription(3, "Описание 3-го урока",w3,les3);
+        }
+
+        function showDescription(num, descr, w, leslink) {
+            if ( w != undefined){
+                w.close();
+                w = undefined;
+                leslink.innerHTML = "JS Урок №" +num;
+            }
+            else {
+                w = window.open("lesson_07.4.1.html", "Описание " + num + "-го урока","width=640px,height=480px,top=200px,left=200px");
+                w.window.onload = function () {
+                    w.document.getElementById("description").innerHTML = descr;
+                }
+                leslink.innerHTML = "JS Урок №" +num+ " (открыт)";
+            }
+            return w;
+        }
+    </script>
+</head>
+<body>
+<p>Lesson 7.4</p>
+<p><a id="lesson1" title="Lesson 1" href="#">JS Урок №1</a></p>
+<p><a id="lesson2" title="Lesson 2" href="#">JS Урок №2</a></p>
+<p><a id="lesson3" title="Lesson 3" href="#">JS Урок №3</a></p>
+</body>
+</html>

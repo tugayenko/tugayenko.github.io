@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 07.5 - Oleksandr Tugayenko</title>
+    <script type="text/javascript">
+
+/*-------------------------------------------------------------------------------------------------------------
+ Задание 5
+ Создайте бегущую строку. Пользователь вводит текст в поле ввода и нажимает на кнопку. После чего в элементе страниц, отображается бегущая строка с введенным текстом.
+ */
+        var strMessage;
+        var runDiv;
+        var divX = 0;
+        var divWidth = 0;
+        window.onload = function(){
+            runDiv = document.getElementById("runDiv");
+            strMessage = prompt("Введите текст для бегущей строки","Бегущая строка");
+            if (strMessage == null){
+                alert("Перезагрузите страницу для ввода бегущей строки.");
+            }
+            else{
+                runDiv.innerHTML = strMessage;
+                divWidth = runDiv.clientWidth;
+                setInterval(runningString,2);
+            }
+        };
+
+        function runningString(){
+            divX++;
+            if (divX > window.innerWidth){
+                divX = 0;
+            }
+            runDiv.style.left = divX+"px";
+
+        };
+
+    </script>
+</head>
+<body>
+    <p>Lesson 7.5</p>
+    <div style="white-space: nowrap; overflow: hidden">
+    <div id="runDiv" style="position: absolute;display: inline-block; overflow: hidden; color: green; left: 0px; top: 100px">Running String</div>
+        <div>
+</body>
+</html>

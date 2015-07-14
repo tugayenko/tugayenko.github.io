@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 07.3 - Oleksandr Tugayenko</title>
+    <script type="text/javascript">
+
+/*-------------------------------------------------------------------------------------------------------------
+ Задание 3
+ Создайте приложение, которое от пользователя должно принимать строки в формате «10 + 20» или «50 - 6».
+ При получении такой строки приложение должно отобразить результат арифметического действия.
+ */
+        window.onload = Calculate;
+
+        function Calculate(){
+
+            var str = prompt("Введите 2 операнда и операцию между ними (+,-,*,/)","1 + 2");
+            var arrparams = str.split(" ");
+            var oper1 = parseInt(arrparams[0]);
+            var oper2 = parseInt(arrparams[2]);
+            var operation = arrparams[1];
+            document.write("результат операции = ");
+            switch(operation){
+                case "+":{
+                    document.write(oper1 + oper2);
+                    break;
+                }
+                case "-":{
+                    document.write(oper1 - oper2);
+                    break;
+                }
+                case "*":{
+                    document.write(oper1 * oper2);
+                    break;
+                }
+                case "/":{
+                    document.write(oper1 / oper2);
+                    break;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+ <p>Lesson 7.3</p>
+</body>
+</html>

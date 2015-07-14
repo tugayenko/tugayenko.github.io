@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 07.1 - Oleksandr Tugayenko</title>
+    <script type="text/javascript">
+
+/*-------------------------------------------------------------------------------------------------------------
+ Задание 1
+ Разработайте программу секундомер. Секундомер должен иметь три кнопки «Старт», «Стоп», «Сбросить». Секундомер должен выводить время в формате 00:00:00.
+ */
+        var tamInterval;
+        var elHours;
+        var elMinutes;
+        var elSeconds;
+        window.onload = function() {
+            document.getElementById("start").onclick = startTimer;
+            document.getElementById("stop").onclick = stopTimer;
+            document.getElementById("reset").onclick = resetTimer;
+            elHours = document.getElementById("hours");
+            elMinutes = document.getElementById("minutes");
+            elSeconds = document.getElementById("seconds");
+        }
+
+        function startTimer(){
+            tamInterval = setInterval(incClock,1);
+        }
+
+        function stopTimer(){
+            if (tamInterval){
+                clearInterval(tamInterval);
+            }
+        }
+
+        function resetTimer(){
+            if (tamInterval){
+                clearInterval(tamInterval);
+            }
+           resetClock();
+        }
+
+        function resetClock(){
+            document.getElementById("hours").innerHTML = "00";
+            document.getElementById("minutes").innerHTML = "00";
+            document.getElementById("seconds").innerHTML = "00";
+            seconds = 0;
+        }
+
+        function incClock(){
+            var seconds = parseInt(elSeconds.innerHTML);
+            var minutes = parseInt(elMinutes.innerHTML);
+            var hours = parseInt(elHours.innerHTML);
+            seconds++;
+            if (seconds < 60){
+                elSeconds.innerHTML = pad(seconds);
+            }
+            else {
+                elSeconds.innerHTML = "00";
+                minutes++;
+                if (minutes < 60){
+                    elMinutes.innerHTML = pad(minutes);
+                }
+                else {
+                    elMinutes.innerHTML = "00";
+                    hours++;
+                    if (hours < 24){
+                        elHours.innerHTML = pad(hours);
+                    }
+                    else{
+                        elHours.innerHTML = "00";
+                    }
+                }
+            }
+        }
+
+    function pad(n) {
+        return (n < 10) ? ("0" + n) : n;
+    }
+    </script>
+</head>
+<body>
+    <p id="timer"><span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span></p>
+    <input type="button" id="start" value="Start">&nbsp;&nbsp;
+    <input type="button" id="stop" value="Stop">&nbsp;&nbsp;
+    <input type="button" id="reset" value="Reset">
+</body>
+</html>
