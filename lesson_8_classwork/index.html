@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 8 - Oleksandr Tugayenko</title>
+    <script type="text/javascript">
+
+/*-------------------------------------------------------------------------------------------------------------
+Разработайте страницу, разместите на ней четыре кнопки – «вверх», «вниз», «влево», «вправо». Поместите на странице div с текстом. При нажатии на кнопки должна запускаться анимация, которая перемещает div на 100 px в соответствующем направлении. 
+ */
+        var runDiv;
+		var runPixels = 100;
+		var divInterval = undefined;
+        window.onload = function(){
+            runDiv = document.getElementById("runDiv");
+			document.getElementById("moveup").onclick = moveUp;
+			document.getElementById("moveleft").onclick = moveLeft;
+			document.getElementById("moveright").onclick = moveRight;
+			document.getElementById("movedown").onclick = moveDown;
+        };
+
+		function moveUp (){
+			if (divInterval == undefined){
+				divInterval = setInterval(moveFUp,10);
+			}
+		}
+		
+		function moveLeft (){
+			if (divInterval == undefined){
+			divInterval = setInterval(moveFLeft,10);
+			}
+		}
+		
+		function moveRight (){
+			if (divInterval == undefined){
+			divInterval = setInterval(moveFRight,10);
+			}
+		}
+		
+		function moveDown (){
+			divInterval = setInterval(moveFDown,10);
+		}
+		
+		//---------------------------------------------------------------------
+		function moveFUp (){
+			moveDiv("X",-1);
+		}
+		
+		function moveFLeft (){
+			moveDiv("Y",-1);
+		}
+		
+		function moveFRight (){
+			moveDiv("Y",1);
+		}
+		
+		function moveFDown (){
+			moveDiv("X",1);
+		}
+		//---------------------------------------------------------------------
+		
+		function moveDiv(axe,val){
+			runPixels--;
+			if (runPixels >= 0 ){
+				switch(axe){
+					case "X":{
+						runDiv.style.top = parseInt(runDiv.style.top) + val + "px";
+						break;
+					}
+					case "Y":{
+						runDiv.style.left = parseInt(runDiv.style.left) + val + "px";
+						if ((parseInt(runDiv.style.left)) > window.innerWidth){
+							runDiv.style.left = -parseInt(runDiv.style.width) + "px";
+						}
+						if ((parseInt(runDiv.style.left)+parseInt(runDiv.style.width)) < 0){
+							runDiv.style.left = parseInt(window.innerWidth) + "px";
+						}
+					}
+				}
+			}
+			else{
+				clearInterval(divInterval);
+				runPixels = 100;
+				divInterval = undefined;
+			}
+		}
+		
+    </script>
+</head>
+<body style="overflow:hidden;white-space: nowrap;" >
+    <p>Lesson 8 classwork</p>
+    <div id="runDiv" style="position: absolute;display: inline-block; overflow: hidden; background: #00FF00;color: blue; left: 200px; top: 200px; width:200px; height: 200px">simple div</div>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="button" id="moveup" value="вверх"><br/>
+	<input type="button" id="moveleft" value="влево">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="button" id="moveright" value="вправо"><br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="button" id="movedown" value="вниз">
+</body>
+</html>
