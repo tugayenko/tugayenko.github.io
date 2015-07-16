@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 9 - Oleksandr Tugayenko</title>
+    <script type="text/javascript">
+
+/*-------------------------------------------------------------------------------------------------------------
+Разработайте страницу, разместите на ней четыре кнопки – «вверх», «вниз», «влево», «вправо». Поместите на странице div с текстом. При нажатии на кнопки должна запускаться анимация, которая перемещает div на 100 px в соответствующем направлении. 
+ */
+        var runDiv;
+		var runPixels = 100;
+		var divInterval = undefined;
+		var btnskidka;
+		
+		var clrs = new Array(66,71,82);
+        window.onload = function(){
+			var main = document.getElementById("main");
+			var skidka = document.getElementById("skidka");
+			main.onkeydown = function(e){
+				var pressedKey = parseInt(e.keyCode);
+				if(pressedKey == 66 || pressedKey == 71 || pressedKey == 82){
+					var divs = document.querySelectorAll("div");
+					var clr = "black";
+					switch (e.keyCode){
+						case 71:{
+							clr = "green";
+							break;
+						}
+						case 82:{
+							clr = "red";
+							break;
+						}
+						case 66:{
+							clr = "blue";
+							break;
+						}						
+					}
+					for (i=0; i < divs.length; i++){
+						divs[i].style.color = clr;
+					}
+				}
+			}
+			
+			skidka.onmouseover = function(e){
+				var windowWidth = window.innerWidth;
+				var windowHeight = window.innerHeight;
+				var mouseY = e.clientY;
+				var mouseX = e.clientX;
+				//alert(mouseY + " - "+mouseX);
+				var newX = parseInt(skidka.style.left);
+				var newY = parseInt(skidka.style.top);
+				var btnWidth = parseInt(skidka.style.width);
+				var btnHeight = parseInt(skidka.style.height);
+				
+				if (mouseY<=(newY + parseInt(btnHeight/2))){
+					newY = mouseY + btnHeight + 50;
+					if ((newY + btnHeight) > windowHeight){
+						newY = mouseY - btnHeight - 50;
+					}
+				}
+				else{				
+					if (mouseY>=(newY + parseInt(btnHeight/2))){
+						newY = mouseY - btnHeight - 50;
+						if (newY < 0){
+							newY = mouseY + 50;
+						}
+					}
+				}
+				
+				if (mouseX<=(newX + parseInt(btnWidth/2))){
+					newX = mouseX + 50;
+					if ((newX + btnWidth) > windowWidth){
+						newX = mouseX - btnWidth - 50;
+					}
+				}
+				else{				
+					if (mouseX>=(newX + parseInt(btnWidth/2))){
+						newX = mouseX - btnWidth - 50;
+						if (newX < 0){
+							newX = mouseX + 50;
+						}
+					}
+				}
+			
+				skidka.style.left = newX + "px";
+				skidka.style.top = newY + "px";
+			}
+	     };
+//-----------------------------------------------------------------------------------------------------
+		
+	
+    </script>
+</head>
+<body style="overflow:hidden;white-space: nowrap;" id="main">
+    <p>Lesson 9 classwork</p>
+	
+	<div id="first">Simple Text 1</div>
+	<div id="second">Simple Text 2</div>
+	<div id="third">Simple Text 3</div>
+	<br/>
+	<input type="button" id="skidka" value="Получить скидку" style="position:absolute; top: 300px; left: 300px; width: 150px; height:30px">
+</body>
+</html>
