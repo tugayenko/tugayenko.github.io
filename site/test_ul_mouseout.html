@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title></title>
 
-    <link rel="stylesheet" type="text/css" href="tam.css">
+    <link rel="stylesheet" type="text/css" href="test_ul_mouseout.css">
 
     <script type="text/javascript">
 
@@ -19,6 +19,8 @@
             elm = document.getElementById("mProducts");
             elm.onclick = showSubMenu;
 
+
+/*#######################################################################*/
             elm = document.getElementById("mProductsSub");
             elm.onmouseout = function(){
                 document.getElementById("pinfo").innerHTML = "ul OUT";
@@ -27,16 +29,18 @@
             elm.onmouseover = function(){
                 document.getElementById("pinfo").innerHTML = "ul OVER";
             }
+/*#######################################################################*/
+
 
             //on mouse to change and close submenu
             var elems = document.getElementsByClassName("mMenu");
 
             /*elems = document.getElementsByClassName("sMenu");
-            for (var i; i<elems.length; i++){
-                elems[i].onmouseover = mcancelclosetime;
-                elems[i].onmouseover = mclosetime;
-            }
-            */
+             for (var i; i<elems.length; i++){
+             elems[i].onmouseover = mcancelclosetime;
+             elems[i].onmouseover = mclosetime;
+             }
+             */
         }
 
         function showSubMenu(){

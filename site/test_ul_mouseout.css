@@ -1,0 +1,121 @@
+body{
+    min-width:1000px;
+}
+#top_black{
+    display: block;
+    float: top;
+    color: #fff;
+    background: #000;
+    height: 30px;
+    width: 100%;
+
+}
+#top_white{
+    /*display: table-cell;*/
+    float: top;
+    font: normal 16px arial;
+    color: #000;
+    background: #fffddd;
+    height: 106px;
+    width: 100%;
+    /*vertical-align: middle;*/
+}
+#top_logo{
+    background: url(../images/lookshop.png) no-repeat;
+    /* float: top;*/
+    position: absolute;
+    left:110px;
+    top: 80px;
+    height: 30px;
+    width: 130px;
+}
+#top_phone{
+    position:absolute;
+    top: 15px;
+    left: 115px;
+}
+#top_currency{
+    position:absolute;
+    top: 15px;
+    right: 100px;
+}
+#top_cart{
+    position: relative;
+    top:43px;
+    width:200px;
+    /*left: 400px;*/
+    /*text-align: center;*/
+    float: right;
+}
+
+
+/* ----------------------------------------------------- */
+
+#topMenu{
+    position: relative;
+    top:43px;
+    /*left: 400px;*/
+    /*text-align: center;*/
+    float: right;
+}
+
+#myMenu{
+    list-style: none;
+    float:left;
+    margin: 0;
+    padding: 0;
+    z-index: 30;
+}
+
+#myMenu ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#myMenu li{
+    display: block;
+    float:left;
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    text-align: center;
+}
+
+#myMenu li a{
+    display: block;
+    width: 100px;
+    height: 30px;
+    text-decoration: none;
+    color: #000;
+}
+
+#myMenu li a:hover{
+    background: #ffa687;
+    color: #fff;
+}
+
+#myMenu li ul {
+    position: absolute;
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+#myMenu li ul li{
+    float:none;
+    background: #ffa687;
+    width:200px;
+    text-align: left;
+}
+
+#myMenu li ul li a{
+    width:200px;
+    height: 30px;
+    color: #fff;
+}
+
+#myMenu li ul li a:hover{
+    background: #fff;
+    color: #ffa687;
+}
