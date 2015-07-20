@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="tam.css">
+
+    <script type="text/javascript">
+
+        var curSubMenu = 0;
+        var curbtn = 0;
+        var closetimer	= 0;
+        var timeout	= 300;
+        var elm = 0;
+        var elms = 0;
+
+        window.onload = function(){
+            elm = document.getElementById("mProducts");
+            elm.onclick = showSubMenu;
+            //document.getElementById("mProductsSub").onmouseout = closeSubMenu;
+            elems = document.getElementsByClassName("mMenu");
+            /*for (elm in elems){
+                elm.onmouseover = mColorSet;
+                elm.onmouseout = mColorClear;
+            }*/
+            elems = document.getElementsByClassName("sMenu");
+            for (elm in elems){
+                elm.onmouseover = mcancelclosetime;
+                elm.onmouseout = mclosetime;
+            }
+        }
+
+        function showSubMenu()
+        {
+            curSubMenu = document.getElementById("mProductsSub");
+            curSubMenu.style.visibility = "visible";
+            mColorSet("mProducts");
+
+        }
+
+        function closeSubMenu()
+        {
+            curSubMenu = document.getElementById("mProductsSub");
+            curSubMenu.style.visibility = 'hidden';
+        }
+
+        //-------------------------------------
+        function mColorSet(id){
+            document.getElementById(id).setAttribute("style","color:white; background-color:#ffa687");
+        }
+
+        function mColorClear(id) {
+            document.getElementById(id).setAttribute("style","color:black; background-color:none")
+        }
+
+        function submColorSet(){
+            this.style.color = "#ffa687";
+            this.style.backgroundColor = "#fff";
+        }
+
+        function submColorClear(){
+            this.style.color = "#fff";
+            this.style.backgroundColor = "#ffa687";
+        }
+
+        function mclosetime()
+        {
+            closetimer = window.setTimeout(closeSubMenu, timeout);
+        }
+
+        function mcancelclosetime()
+        {
+            if(closetimer)
+            {
+                window.clearTimeout(closetimer);
+                closetimer = null;
+            }
+        }
+
+        //----------------------------------------------------------
+    </script>
+</head>
+<body>
+
+<div id="top_black">
+    <span id="top_phone">CUSTOM CARE 888-23-4567</span>
+    <span id="top_currency">currency</span>
+</div>
+
+<div id="top_white">
+    <div id="top_logo">&nbsp;</div>
+    <div id="top_cart">&nbsp;</div>
+
+    <div id="topMenu">
+        <ul id="myMenu">
+            <li><a href="#">home</a></li>
+            <li id="mProducts"><a href="#">products</a>
+                <ul id="mProductsSub">
+                    <li class="sMenu"><a href="#">women</a></li>
+                    <li class="sMenu"><a href="#">men</a></li>
+                    <li class="sMenu"><a href="#">children</a></li>
+                </ul>
+            </li>
+            <li><a href="#">shopping</a></li>
+            <li><a href="#">contacts</a></li>
+        </ul>
+    </div>
+
+</div>
+
+
+</body>
+</html>
