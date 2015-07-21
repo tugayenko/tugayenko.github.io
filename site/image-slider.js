@@ -15,6 +15,7 @@ imgSldr.pager_ul = 0;
 imgSldr.pager_lis = 0;
 
 imgSldr.id = undefined;
+imgSldr.idAnimation = undefined;
 
 function imgSldr_init(){
     //init image slider
@@ -33,17 +34,12 @@ function imgSldr_init(){
     imgSldr.pager_ul = document.getElementById('pager');
     imgSldr.pager_lis = imgSldr.pager_ul.children;
     imgSldr.pager_lis[0].class = "activePage";
-
+    imgSldr_slideTo(0);
 }
 
 function imgSldr_animate(opts){
     var opDirection = 1;
-    //var start = new Date;
-
     imgSldr.id = setInterval(function(){
-        //var timePassed = new Date - start;
-        //var progress = timePassed*2 / opts.duration;
-
         if (parseFloat(imgSldr.ul.style.opacity) <= 0.1){
             opDirection = -1;
             imgSldr.ul.style.left = parseInt(-imgSldr.imageWidth * opts.imageToGo) + 'px';
@@ -52,14 +48,19 @@ function imgSldr_animate(opts){
         if (newOpacity >= 1){
             clearInterval(imgSldr.id);
             imgSldr.ul.style.opacity = "1";
+            var nextImage = imgSldr.currentImage+1;
+            if (nextImage>=(imgSldr.imageNumber)){
+                nextImage = 0;
+            }
+            imgSldr_slideTo(nextImage);
         }
         else{
             imgSldr.ul.style.opacity = newOpacity.toString();
         }
-
-
     }, opts.duration);
 }
+
+
 
 function imgSldr_slideTo(imageToGo){
     imgSldr_resetSlide();
