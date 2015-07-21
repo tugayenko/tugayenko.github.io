@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<link rel="stylesheet" type="text/css" href="test.css">
+    <script type="text/javascript">
+		
+		var watermark;
+		var input;
+		var btnCheck;
+		var patternTime = /\b\d\d:\d\d\b/g;
+		var patternColor = /#[0-9A-F]{6}/igm;
+		var 
+
+        window.onload = function(){
+			input = document.forms[0].time;
+			btnCheck = document.forms[0].check;
+			btnCheck.onclick = checkColor;
+		}
+		
+		function checkTime(){
+				var str = input.value;
+				var arrTimes = str.match(patternTime);
+				if (arrTimes.length>0){
+					alert("Найденное время: "+ arrTimes);					
+				}
+				else{
+					alert("Время не найдено");
+				}
+			}
+			
+		function checkColor(){
+			var str = input.value;
+				var arrColors = new Array;
+				var arrColors = str.match(patternColor);
+				if (arrColors.length>0){
+					alert("Найденные цвета: "+ arrColors);					
+				}
+				else{
+					alert("Цвета не найдены");
+				}
+		}
+    </script>
+</head>
+<body>
+<div style="position:absolute;top:200px;left:200px">
+	<form>
+	<input type="text" name="time" value="Введите строку">
+	<input type="button" name ="check" value="check">
+	</form>
+</div>
+</body>
+</html>
