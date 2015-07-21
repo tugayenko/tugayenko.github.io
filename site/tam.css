@@ -47,8 +47,6 @@ body{
     /*text-align: center;*/
     float: right;
 }
-
-
 /* ----------------------------------------------------- */
 
 #topMenu{
@@ -59,63 +57,57 @@ body{
     float: right;
 }
 
-#myMenu{
-    list-style: none;
-    float:left;
-    margin: 0;
+#sddm{margin: 0;
     padding: 0;
     z-index: 30;
 }
 
-#myMenu ul{
+#sddm li{
+    margin: 0;
+    padding: 0;
     list-style: none;
-    margin: 0;
-    padding: 0;
+    float: left;
 }
 
-#myMenu li{
+#sddm li a{
     display: block;
-    float:left;
-    margin: 0;
-    padding: 0;
+    margin: 0 1px 0 0;
+    padding: 4px 10px;
     width: 100px;
-    text-align: center;
-}
-
-#myMenu li a{
-    display: block;
-    width: 100px;
-    height: 30px;
-    text-decoration: none;
+    background: #fff;
     color: #000;
+    text-align: center;
+    text-decoration: none;
 }
 
-#myMenu li a:hover{
-    background: #ffa687;
+#sddm li a:hover{
     color: #fff;
+    background: #ffa687;
 }
 
-#myMenu li ul {
+#sddm div{
     position: absolute;
     visibility: hidden;
     margin: 0;
     padding: 0;
-}
-
-#myMenu li ul li{
-    float:none;
     background: #ffa687;
-    width:200px;
-    text-align: left;
 }
 
-#myMenu li ul li a{
-    width:200px;
-    height: 30px;
+#sddm div a{
+    position: relative;
+    display: block;
+    width:100px;
+    height:30px;
+    margin: 0;
+    padding: 5px 10px;
+    white-space: nowrap;
+    text-align: left;
+    text-decoration: none;
+    background: #ffa687;
     color: #fff;
 }
 
-#myMenu li ul li a:hover{
+#sddm div a:hover{
     background: #fff;
     color: #ffa687;
 }

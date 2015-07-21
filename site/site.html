@@ -3,78 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-
     <link rel="stylesheet" type="text/css" href="tam.css">
-
+    <link rel="stylesheet" type="text/css" href="image-slider.css">
+    <script type="text/javascript" src="image-slider.js"></script>
     <script type="text/javascript">
 
-        var curSubMenu = 0;
-        var curbtn = 0;
         var closetimer	= 0;
         var timeout	= 300;
-        var selSubMenu = 0;
+        var ddmenuitem	= 0;
 
-        window.onload = function(){
-            //onclick to open submenu
-            elm = document.getElementById("mProducts");
-            elm.onclick = showSubMenu;
+        function tmopen(id)
+        {
+            tmcancelclosetime();
 
-            elm = document.getElementById("mProductsSub");
-            elm.onmouseout = function(){
-                document.getElementById("pinfo").innerHTML = "ul OUT";
-                alert("UL MOUSE OUT");
-            }
-            elm.onmouseover = function(){
-                document.getElementById("pinfo").innerHTML = "ul OVER";
-            }
-
-            //on mouse to change and close submenu
-            var elems = document.getElementsByClassName("mMenu");
-
-            /*elems = document.getElementsByClassName("sMenu");
-            for (var i; i<elems.length; i++){
-                elems[i].onmouseover = mcancelclosetime;
-                elems[i].onmouseover = mclosetime;
-            }
-            */
-        }
-
-        function showSubMenu(){
-            curSubMenu = document.getElementById("mProductsSub");
-            curSubMenu.style.visibility = "visible";
-            mColorSet("mProducts");
+            if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+            ddmenuitem = document.getElementById(id);
+            ddmenuitem.style.visibility = 'visible';
 
         }
-
-        function closeSubMenu(){
-            curSubMenu = document.getElementById("mProductsSub");
-            curSubMenu.style.visibility = 'hidden';
+        function tmclose()
+        {
+            if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+            subMenuClear(".imgSubMenu","../images/ping_white.png");
         }
 
-        //-------------------------------------
-        function mColorSet(id){
-            document.getElementById(id).setAttribute("style","color:white; background-color:#ffa687");
+        function tmclosetime()
+        {
+            closetimer = window.setTimeout(tmclose, timeout);
         }
 
-        function mColorClear(id) {
-            document.getElementById(id).setAttribute("style","color:black; background-color:none")
-        }
-
-        function submColorSet(){
-            this.style.color = "#ffa687";
-            this.style.backgroundColor = "#fff";
-        }
-
-        function submColorClear(){
-            this.style.color = "#fff";
-            this.style.backgroundColor = "#ffa687";
-        }
-
-        function mclosetime(){
-            closetimer = window.setTimeout(closeSubMenu, timeout);
-        }
-
-        function mcancelclosetime(){
+        function tmcancelclosetime()
+        {
             if(closetimer)
             {
                 window.clearTimeout(closetimer);
@@ -82,7 +41,19 @@
             }
         }
 
-        //----------------------------------------------------------
+        //-------------------------------------------------------------
+
+        function subMenuClick(elm){
+            subMenuClear(".imgSubMenu","../images/ping_white.png");
+            elm.firstChild.src = "../images/ping_rose.png";
+        }
+
+        function subMenuClear(strSelector,imgSrc){
+            var elems = document.querySelectorAll(strSelector);
+            for (var i=0; i<elems.length; i++){
+                elems[i].src = imgSrc;
+            }
+        }
     </script>
 </head>
 <body>
@@ -97,23 +68,34 @@
     <div id="top_cart">&nbsp;</div>
 
     <div id="topMenu">
-        <ul id="myMenu">
-            <li><a href="#">home</a></li>
-            <li id="mProducts"><a href="#">products</a>
-                <ul id="mProductsSub" style="width:200px; height:90px">
-                    <li class="sMenu"><a href="#">women</a></li>
-                    <li class="sMenu"><a href="#">men</a></li>
-                    <li class="sMenu"><a href="#">children</a></li>
-                </ul>
+        <ul id="sddm">
+            <li><a href="#">home</a>
+            </li>
+
+            <li><a href="#"
+                   onmouseover="tmopen('m2')"
+                   onmouseout="tmclosetime()">products</a>
+                <div id="m2"
+                     onmouseover="tmcancelclosetime()"
+                     onmouseout="tmclosetime()">
+                    <a href="#"
+                       onclick="subMenuClick(this)"><img src="../images/ping_white.png" class="imgSubMenu"/>&nbsp women</a>
+                    <a href="#"
+                       onclick="subMenuClick(this)"><img src="../images/ping_white.png" class="imgSubMenu"/>&nbsp men</a>
+                    <a href="#"
+                       onclick="subMenuClick(this)"><img src="../images/ping_white.png" class="imgSubMenu"/>&nbsp children</a>
+                </div>
             </li>
             <li><a href="#">shopping</a></li>
             <li><a href="#">contacts</a></li>
         </ul>
+        <div style="clear:both"></div>
     </div>
 
 </div>
 
 <p id="pinfo">information</p>
+
 
 </body>
 </html>

@@ -3,37 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-
     <link rel="stylesheet" type="text/css" href="tam1.css">
-
+    <link rel="stylesheet" type="text/css" href="image-slider.css">
+    <script type="text/javascript" src="image-slider.js"></script>
     <script type="text/javascript">
 
-        window.onload = function(){
-            /*for(elm in document.getElementsByClassName("mMenu")){
-                elm.onmouseover = mColorSet;
-                elm.onmouseout = mColorClear;
-            }*/
-            document.getElementById("mn1").onmouseover = mColorSet;
-            document.getElementById("mn1").elm.onmouseout = mColorClear;
-            document.getElementById("mn2").onmouseover = mColorSet;
-            document.getElementById("mn2").elm.onmouseout = mColorClear;
-            document.getElementById("mn3").onmouseover = mColorSet;
-            document.getElementById("mn3").elm.onmouseout = mColorClear;
-            document.getElementById("mn4").onmouseover = mColorSet;
-            document.getElementById("mn1").elm.onmouseout = mColorClear;
+        var closetimer	= 0;
+        var timeout	= 300;
+        var ddmenuitem	= 0;
+
+        // open hidden layer
+        function tmopen(id)
+        {
+            // cancel close timer
+            tmcancelclosetime();
+
+            // close old layer
+            if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+            // get new layer and show it
+            ddmenuitem = document.getElementById(id);
+            ddmenuitem.style.visibility = 'visible';
+
+        }
+        // close showed layer
+        function tmclose()
+        {
+            if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+            subMenuClear(".imgSubMenu","../images/ping_white.png");
         }
 
-
-        //-------------------------------------
-        function mColorSet(){
-            this.setAttribute("style","color:white; background-color:#ffa687")
+        // go close timer
+        function tmclosetime()
+        {
+            closetimer = window.setTimeout(tmclose, timeout);
         }
 
-        function mColorClear(){
-            this.setAttribute("style","color:black; background-color:none")
+        // cancel close timer
+        function tmcancelclosetime()
+        {
+            if(closetimer)
+            {
+                window.clearTimeout(closetimer);
+                closetimer = null;
+            }
         }
 
-        //----------------------------------------------------------
+        //-------------------------------------------------------------
+
+
+        function subMenuClick(elm){
+            subMenuClear(".imgSubMenu","../images/ping_white.png");
+            elm.firstChild.src = "../images/ping_rose.png";
+        }
+
+        function subMenuClear(strSelector,imgSrc){
+            var elems = document.querySelectorAll(strSelector);
+            for (var i=0; i<elems.length; i++){
+                elems[i].src = imgSrc;
+            }
+        }
     </script>
 </head>
 <body>
@@ -47,19 +76,51 @@
     <div id="top_logo">&nbsp;</div>
     <div id="top_cart">&nbsp;</div>
 
-
-
     <div id="topMenu">
-        <ul id="myMenu">
-            <li><a href="#" id="mn1" class="mMenu">home</a></li>
-            <li><a href="#" id="mn2" class="mMenu">products</a></li>
-            <li><a href="#" id="mn3" class="mMenu">shopping</a></li>
-            <li><a href="#" id="mn4" class="mMenu">contacts</a></li>
+        <ul id="sddm">
+            <li><a href="#">home</a>
+            </li>
+
+            <li><a href="#"
+                   onmouseover="tmopen('m2')"
+                   onmouseout="tmclosetime()">products</a>
+                <div id="m2"
+                     onmouseover="tmcancelclosetime()"
+                     onmouseout="tmclosetime()">
+                    <a href="#"
+                            onclick="subMenuClick(this)"><img src="../images/ping_white.png" class="imgSubMenu"/>&nbsp women</a>
+                    <a href="#"
+                       onclick="subMenuClick(this)"><img src="../images/ping_white.png" class="imgSubMenu"/>&nbsp men</a>
+                    <a href="#"
+                       onclick="subMenuClick(this)"><img src="../images/ping_white.png" class="imgSubMenu"/>&nbsp children</a>
+                </div>
+            </li>
+            <li><a href="#">shopping</a></li>
+            <li><a href="#">contacts</a></li>
         </ul>
+        <div style="clear:both"></div>
     </div>
 
 </div>
 
+<p id="pinfo">information</p>
+
+<div class="container">
+    <div class="slider_wrapper">
+        <ul id="image_slider">
+            <li><img src="https://dl.dropboxusercontent.com/u/65639888/image/1.jpg"></li>
+            <li><img src="https://dl.dropboxusercontent.com/u/65639888/image/4.jpg"></li>
+            <li><img src="https://dl.dropboxusercontent.com/u/65639888/image/5.jpg"></li>
+            <li><img src="https://dl.dropboxusercontent.com/u/65639888/image/1.jpg"></li>
+            <li><img src="https://dl.dropboxusercontent.com/u/65639888/image/4.jpg"></li>
+            <li><img src="https://dl.dropboxusercontent.com/u/65639888/image/5.jpg"></li>
+        </ul>
+        <span class="nvgt" id="prev"></span>
+        <span class="nvgt" id="next"></span>
+    </div>
+    <ul id="pager">
+    </ul>
+</div>
 
 </body>
 </html>
