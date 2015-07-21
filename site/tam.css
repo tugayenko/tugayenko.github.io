@@ -1,6 +1,15 @@
-body{
+body, html{
     min-width:1000px;
+    width:1024px;
+    /*margin:0px;*/
+    /*padding:0px;*/
 }
+
+#main{
+    width:1024px;
+    /*margin:0 auto;*/
+}
+
 #top_black{
     display: block;
     float: top;
@@ -36,6 +45,7 @@ body{
 }
 #top_currency{
     position:absolute;
+    display: block;
     top: 15px;
     right: 100px;
 }
@@ -57,9 +67,10 @@ body{
     float: right;
 }
 
-#sddm{margin: 0;
+#sddm{
+    margin: 0;
     padding: 0;
-    z-index: 30;
+    z-index: 50;
 }
 
 #sddm li{

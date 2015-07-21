@@ -57,45 +57,70 @@
     </script>
 </head>
 <body>
+<div class="main">
 
-<div id="top_black">
-    <span id="top_phone">CUSTOM CARE 888-23-4567</span>
-    <span id="top_currency">currency</span>
-</div>
-
-<div id="top_white">
-    <div id="top_logo">&nbsp;</div>
-    <div id="top_cart">&nbsp;</div>
-
-    <div id="topMenu">
-        <ul id="sddm">
-            <li><a href="#">home</a>
-            </li>
-
-            <li><a href="#"
-                   onmouseover="tmopen('m2')"
-                   onmouseout="tmclosetime()">products</a>
-                <div id="m2"
-                     onmouseover="tmcancelclosetime()"
-                     onmouseout="tmclosetime()">
-                    <a href="#"
-                       onclick="subMenuClick(this)"><img src="../images/ping_white.png" class="imgSubMenu"/>&nbsp women</a>
-                    <a href="#"
-                       onclick="subMenuClick(this)"><img src="../images/ping_white.png" class="imgSubMenu"/>&nbsp men</a>
-                    <a href="#"
-                       onclick="subMenuClick(this)"><img src="../images/ping_white.png" class="imgSubMenu"/>&nbsp children</a>
-                </div>
-            </li>
-            <li><a href="#">shopping</a></li>
-            <li><a href="#">contacts</a></li>
-        </ul>
-        <div style="clear:both"></div>
+    <div id="top_black">
+        <div id="top_phone">CUSTOM CARE 888-23-4567</div>
+        <div id="top_currency">currency</div>
     </div>
 
+    <div id="top_white">
+        <div id="top_logo">&nbsp;</div>
+        <div id="top_cart">&nbsp;</div>
+
+        <div id="topMenu">
+            <ul id="sddm">
+                <li><a href="#">home</a>
+                </li>
+
+                <li><a href="#"
+                       onmouseover="tmopen('m2')"
+                       onmouseout="tmclosetime()">products</a>
+                    <div id="m2"
+                         onmouseover="tmcancelclosetime()"
+                         onmouseout="tmclosetime()">
+                        <a href="#"
+                           onclick="subMenuClick(this)"><img src="../images/ping_white.png" class="imgSubMenu"/>&nbsp women</a>
+                        <a href="#"
+                           onclick="subMenuClick(this)"><img src="../images/ping_white.png" class="imgSubMenu"/>&nbsp men</a>
+                        <a href="#"
+                           onclick="subMenuClick(this)"><img src="../images/ping_white.png" class="imgSubMenu"/>&nbsp children</a>
+                    </div>
+                </li>
+                <li><a href="#">shopping</a></li>
+                <li><a href="#">contacts</a></li>
+            </ul>
+            <div style="clear:both"></div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div class="image_container">
+        <div class="slider_wrapper">
+            <ul id="image_slider" style="opacity: 1">
+                <li><img src="../images/slider-1.jpg" width="1024"></li>
+                <li><img src="../images/slider-2.jpg" width="1024"></li>
+                <li><img src="../images/slider-3.jpg" width="1024"></li>
+                <li><img src="../images/slider-4.jpg" width="1024"></li>
+                <li><img src="../images/slider-5.jpg" width="1024"></li>
+            </ul>
+            <span class="navigate" id="prev"></span>
+            <span class="navigate" id="next"></span>
+        </div>
+        <ul id="pager">
+            <li class="activePage"><a title="Slide 1" href="#" onclick="imgSldr_slideTo(0,this)">slide 1</a></li>
+            <li><a title="Slide 2" href="#" onclick="imgSldr_slideTo(1,this)">slide 2</a></li>
+            <li><a title="Slide 3" href="#" onclick="imgSldr_slideTo(2,this)">slide 3</a></li>
+            <li><a title="Slide 4" href="#" onclick="imgSldr_slideTo(3,this)">slide 4</a></li>
+            <li><a title="Slide 5" href="#" onclick="imgSldr_slideTo(4,this)">slide 5</a></li>
+        </ul>
+    </div>
+
+<br/>
+    <p id="pinfo">information</p>
 </div>
-
-<p id="pinfo">information</p>
-
 
 </body>
 </html>

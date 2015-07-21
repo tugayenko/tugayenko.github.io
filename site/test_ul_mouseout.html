@@ -22,12 +22,12 @@
 
 /*#######################################################################*/
             elm = document.getElementById("mProductsSub");
-            elm.onmouseout = function(){
-                document.getElementById("pinfo").innerHTML = "ul OUT";
-                alert("UL MOUSE OUT");
+            elm.onmouseleave = function(){
+                document.getElementById("pinfo").innerHTML = "ul LEAVE";
+                alert("UL MOUSE LEAVE");
             }
-            elm.onmouseover = function(){
-                document.getElementById("pinfo").innerHTML = "ul OVER";
+            elm.onmouseenter = function(){
+                document.getElementById("pinfo").innerHTML = "ul ENTER";
             }
 /*#######################################################################*/
 
