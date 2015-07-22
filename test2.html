@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<link rel="stylesheet" type="text/css" href="test.css">
+    <script type="text/javascript">
+		
+		var btnApply;
+		var gcolor = "yellow";
+		var gfontSize = 16;
+
+        window.onload = function(){
+			btnApply = document.getElementById("apply");
+			btnApply.onclick = saveParams;
+			gcolor = getCookie("backcolor");			
+			gfontSize = getCookie("fontsize");
+			//alert(gcolor+" | "+gfontSize);
+			setHTMLParams();
+		}
+		
+		function saveParams(){
+			document.cookie="backcolor="+document.getElementById("colorValue").value+";";
+			document.cookie="fontsize="+parseInt(document.getElementById("fontSize").value)+";";
+			//alert(document.cookie);
+			gcolor = document.getElementById("colorValue").value;
+			gfontSize = parseInt(document.getElementById("fontSize").value);
+			setHTMLParams();
+		};
+		
+		function setHTMLParams(){
+			document.getElementById("main").style.backgroundColor = gcolor;
+			document.getElementById("main").style.fontSize = gfontSize+"pt";
+		}
+		
+		 function getCookie(cookieName) {
+			var allcookies = document.cookie;
+			var pos = allcookies.indexOf(cookieName + "=");
+			if (pos != -1) {
+			var start = pos + cookieName.length + 1;
+			var end = allcookies.indexOf(";", start);
+			if (end == -1) {
+			end = allcookies.length;
+			}
+			var value = allcookies.substring(start, end);
+			return value;
+			}
+		}
+		
+		    </script>
+</head>
+<body id="main">
+		<select id="colorValue">
+			<option>blue</option>
+			<option>orange</option>
+			<option>green</option>
+			<option>lime</option>
+			<option>yellow</option>
+		</select>
+		<input type="text" id="fontSize" value="10">
+		<input type="button" id ="apply" value="APPLY">
+	</div>
+	&nbsp;
+	<div id=""simpleText>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+</body>
+</html>
