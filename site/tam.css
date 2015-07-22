@@ -65,6 +65,7 @@ body, html{
     /*left: 400px;*/
     /*text-align: center;*/
     float: right;
+    z-index:100;
 }
 
 #sddm{
