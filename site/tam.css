@@ -55,7 +55,7 @@ body, html{
 }
 #top_logo{
     position: absolute;
-    background: url(../images/lookshop.png) no-repeat;
+    /*background: url(../images/lookshop.png) no-repeat;*/
     left:110px;
     top: 80px;
     height: 30px;
@@ -132,4 +132,8 @@ body, html{
 #sddm div a:hover{
     background: #fff;
     color: #ffa687;
+}
+
+#social_logos{
+    float: right;
 }
