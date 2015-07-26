@@ -1,0 +1,37 @@
+body#reg_form_body div{
+    overflow: hidden;
+}
+
+body#reg_form_body div{
+    float:top;
+    background: #ffa687;
+    color: #fff;
+    text-align: center;
+}
+
+body#reg_form_body .regFormInput{
+    float:top;
+    display: block;
+    background: #fff;
+    color: #000;
+    width:200px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body#reg_form_body #regFormSubmit{
+    float:right;
+    margin-top: 20px;
+    background: #4fafa1;
+    color: #fff;
+    border: none;
+    width: 90px;
+    height: 30px;
+}
+.regFormInput.error{
+    border-color: #ff0000;
+}
+.regFormInput.valid{
+    border-color: #00ff00;
+}

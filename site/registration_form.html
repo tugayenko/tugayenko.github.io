@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="registration_form.css">
+</head>
+<body id="reg_form_body">
+    <div id="regFormHeader">REGISTER NOW</div>
+    <form name="registration_form">
+        <input type="text" id="regFormName" class="regFormInput" value="" placeholder="Name" data-val="\S">
+        <input type="text" id="regFormSurname" class="regFormInput" value="" placeholder="Surname" data-val="\S">
+        <input type="text" id="regFormPhone" class="regFormInput" value="" placeholder="Phone" data-val="\+[\d]{5,11}">
+        <input type="text" id="regFormEmail" class="regFormInput" value="" placeholder="Email" data-val="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$">
+        <input type="text" id="regFormZip" class="regFormInput" value="" placeholder="Zip" data-val="\d{5}">
+        <input type="submit" id="regFormSubmit" value="Submit">
+    </form>
+</body>
+</html>

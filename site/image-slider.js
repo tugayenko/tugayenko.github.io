@@ -70,7 +70,7 @@ function imgSldr_slideTo(imageToGo){
     direction = imgSldr.currentImage > imageToGo ? 1 : -1;
     imgSldr.currentPosition = -1 * imgSldr.currentImage * imgSldr.imageWidth;
     var opts = {
-        duration:50,
+        duration:75,
         dir:direction,
         imageCurr:imgSldr.currentImage,
         imageToGo:imageToGo
@@ -113,5 +113,3 @@ function imgSldr_FireDot(numDot){
     }
     elems[numDot].className = "activePage";
 }
-
-window.onload = imgSldr_init;

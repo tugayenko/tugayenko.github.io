@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="tam.css">
     <link rel="stylesheet" type="text/css" href="image-slider.css">
     <script type="text/javascript" src="image-slider.js"></script>
+    <script type="text/javascript" src="registration-form.js"></script>
     <script type="text/javascript">
 
         var closetimer	= 0;
@@ -54,6 +55,11 @@
                 elems[i].src = imgSrc;
             }
         }
+
+        window.onload = function(){
+            imgSldr_init();
+            regFormInit();
+        }
     </script>
 </head>
 <body>
@@ -61,7 +67,8 @@
 
     <div id="top_black">
         <div id="top_phone">CUSTOM CARE 888-23-4567</div>
-        <div id="top_currency">currency</div>
+        <div id="top_account">MY ACCOUNT</div>
+        <div id="top_currency">$ US</div>
     </div>
 
     <div id="top_white">

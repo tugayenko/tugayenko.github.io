@@ -11,12 +11,12 @@ body, html{
 }
 
 #top_black{
-    display: block;
+   /* display: block;*/
     float: top;
     color: #fff;
     background: #000;
     height: 30px;
-    width: 100%;
+    width: 1024px;
 
 }
 #top_white{
@@ -29,32 +29,42 @@ body, html{
     width: 100%;
     /*vertical-align: middle;*/
 }
-#top_logo{
-    background: url(../images/lookshop.png) no-repeat;
-    /* float: top;*/
-    position: absolute;
-    left:110px;
-    top: 80px;
-    height: 30px;
-    width: 130px;
-}
 #top_phone{
     position:absolute;
     top: 15px;
     left: 115px;
 }
+#top_account{
+    position:absolute;
+/*    display: block;
+    float: right;*/
+    top: 15px;
+    left: 830px;
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+    padding: 0px 5px;
+}
 #top_currency{
     position:absolute;
-    display: block;
+    /*display: block;
+    float: right;*/
     top: 15px;
-    right: 100px;
+    left: 950px;
+    width:100px;
+    padding: 0px 5px;
+}
+#top_logo{
+    position: absolute;
+    background: url(../images/lookshop.png) no-repeat;
+    left:110px;
+    top: 80px;
+    height: 30px;
+    width: 130px;
 }
 #top_cart{
     position: relative;
     top:43px;
     width:200px;
-    /*left: 400px;*/
-    /*text-align: center;*/
     float: right;
 }
 /* ----------------------------------------------------- */
