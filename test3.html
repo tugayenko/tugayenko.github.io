@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<link rel="stylesheet" type="text/css" href="test.css">
+    <script type="text/javascript">
+		if (supports_canvas()) {
+			//
+		}
+		else {
+			alert("Ваш браузер НЕ поддерживает элемент Canvas");
+		}
+			
+		window.onload = function(){
+			drawFlag(0,0,"UA");
+			drawFlag(100,100,"CH");
+		}
+		
+		function supports_canvas() {
+			return !!document.createElement("canvas").getContext;
+		}
+		
+		function drawFlag(x0,y0,countryID){
+			switch(countryID){
+				case "UA":{
+					var canvas = document.getElementById("canvas");
+					var context = canvas.getContext("2d");
+					context.save();
+					context.translate(x0,y0);
+					context.beginPath();
+					context.fillStyle = "blue";
+					context.fillRect(0,0,70,35);
+					context.fillStyle = "yellow";
+					context.fillRect(0,35,70,35);
+					context.stroke();
+					context.restore();
+					break;
+				}
+				case "CH":{
+					var canvas = document.getElementById("canvas");
+					var context = canvas.getContext("2d");
+					context.save();
+					context.translate(x0,y0);
+					context.beginPath();
+					context.fillStyle = "red";
+					context.fillRect(0,0,70,70);
+					context.fillStyle = "white";
+					context.fillRect(30,10,10,50);
+					context.fillRect(10,30,50,10);
+					context.stroke();
+					context.restore();
+					break;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<canvas id="canvas" height="300" width="600"></canvas>
+	<hr/>
+</body>
+</html>
