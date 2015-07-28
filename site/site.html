@@ -12,6 +12,8 @@
         var closetimer	= 0;
         var timeout	= 300;
         var ddmenuitem	= 0;
+        var totalCost = 0;
+        var totalItems = 0;
 
         function tmopen(id)
         {
@@ -47,6 +49,12 @@
         function subMenuClick(elm){
             subMenuClear(".imgSubMenu","../images/ping_white.png");
             elm.firstChild.src = "../images/ping_rose.png";
+
+            document.getElementById("women_collection").className = "collection hidden";
+            document.getElementById("men_collection").className = "collection hidden";
+            document.getElementById("children_collection").className = "collection hidden";
+            //alert(elm.dataset.val);
+            document.getElementById(elm.dataset.val).className = "collection visible";
         }
 
         function subMenuClear(strSelector,imgSrc){
@@ -56,9 +64,58 @@
             }
         }
 
+        function getCartFromCookie(){
+            totalItems = getCookie("totalItems");
+            if(!totalItems){
+                totalItems = 0;
+                totalCost = 0;
+            }
+            else {
+                totalCost = getCookie("totalCost");
+                if (!totalCost) {
+                    totalCost = 0;
+                }
+            }
+        }
+
+        function addToCart(){
+            getCartFromCookie();
+            totalItems++;
+            totalCost = parseFloat(totalCost) + parseFloat(this.dataset.val);
+            document.cookie="totalItems="+totalItems+";";
+            document.cookie="totalCost="+totalCost+";";
+            showCartFromCookie();
+        }
+
+        function showCartFromCookie(){
+            getCartFromCookie();
+            document.getElementById("basketItems").innerHTML=totalItems+" Items";
+            document.getElementById("basketCost").innerHTML="$" + totalCost;
+        }
+
+        function getCookie(cookieName) {
+            var allcookies = document.cookie;
+            var pos = allcookies.indexOf(cookieName + "=");
+            if (pos != -1) {
+                var start = pos + cookieName.length + 1;
+                var end = allcookies.indexOf(";", start);
+                if (end == -1) {
+                    end = allcookies.length;
+                }
+                var value = allcookies.substring(start, end);
+                return value;
+            }
+        }
+
         window.onload = function(){
             imgSldr_init();
             regFormInit();
+            //set onclick for "Buy btn"
+            var btnsBuy = document.getElementsByClassName("shopItemBuy");
+            for(var i=0; i<btnsBuy.length; i++){
+                btnsBuy[i].onclick =addToCart;
+            }
+            showCartFromCookie();
         }
     </script>
 </head>
@@ -237,7 +294,10 @@
 
 
         </div>
-        <div id="top_cart">&nbsp;</div>
+        <div id="top_cart">
+            <span id="basketItems">0 Items</span>&nbsp;&nbsp;
+            <span id="basketCost">$ 0</span>
+        </div>
 
         <div id="topMenu">
             <ul id="sddm">
@@ -251,11 +311,11 @@
                          onmouseover="tmcancelclosetime()"
                          onmouseout="tmclosetime()">
                         <a href="#"
-                           onclick="subMenuClick(this)"><img src="../images/ping_white.png" class="imgSubMenu"/>&nbsp women</a>
+                           onclick="subMenuClick(this)" data-val="women_collection"><img src="../images/ping_white.png" class="imgSubMenu"/>&nbsp women</a>
                         <a href="#"
-                           onclick="subMenuClick(this)"><img src="../images/ping_white.png" class="imgSubMenu"/>&nbsp men</a>
+                           onclick="subMenuClick(this)" data-val="men_collection"><img src="../images/ping_white.png" class="imgSubMenu"/>&nbsp men</a>
                         <a href="#"
-                           onclick="subMenuClick(this)"><img src="../images/ping_white.png" class="imgSubMenu"/>&nbsp children</a>
+                           onclick="subMenuClick(this)" data-val="children_collection"><img src="../images/ping_white.png" class="imgSubMenu"/>&nbsp children</a>
                     </div>
                 </li>
                 <li><a href="#">shopping</a></li>
@@ -285,10 +345,101 @@
         </ul>
     </div>
 
-<br/>
-    <p id="pinfo">information</p>
+<!-- ----------------------------------------------------------------- -->
+<!-- --------------------- WOMEN COLLECTION -------------------------------------------- -->
+
+
+    <div id="women_collection" class="collection hidden">
+
+        <div class="shopItem">
+            <img class="imgShopItem" src="../images/women_1.jpg" title="Shop Item">
+            <div class="shopItemInfo">
+                <div class="shopItemTitle">Dress 1</div>
+                <div class="shopItemPrice">$30</div>
+                <div class="shopItemBuy" data-val="30" data-name="Dress 1">ADD TO CART +</div>
+            </div>
+        </div>
+        <div class="shopItem">
+            <img class="imgShopItem" src="../images/women_2.jpg" title="Shop Item">
+            <div class="shopItemInfo">
+                <div class="shopItemTitle">Dress 2</div>
+                <div class="shopItemPrice">$40</div>
+                <div class="shopItemBuy" data-val="40" data-name="Dress 2">ADD TO CART +</div>
+            </div>
+        </div>
+        <div class="shopItem">
+            <img class="imgShopItem" src="../images/women_3.jpg" title="Shop Item">
+            <div class="shopItemInfo">
+                <div class="shopItemTitle">Dress 3</div>
+                <div class="shopItemPrice">$60</div>
+                <div class="shopItemBuy" data-val="60" data-name="Dress 3">ADD TO CART +</div>
+            </div>
+        </div>
+    </div>
+
+<!-- -------------------- MEN COLLECTION --------------------------------------------- -->
+<div id="men_collection" class="collection visible">
+
+    <div class="shopItem">
+        <img class="imgShopItem" src="../images/men_1.jpg" title="Shop Item">
+        <div class="shopItemInfo">
+            <div class="shopItemTitle">Suite 1</div>
+            <div class="shopItemPrice">$30</div>
+            <div class="shopItemBuy" data-val="30" data-name="Suite 1">ADD TO CART +</div>
+        </div>
+    </div>
+    <div class="shopItem">
+        <img class="imgShopItem" src="../images/men_2.jpg" title="Shop Item">
+        <div class="shopItemInfo">
+            <div class="shopItemTitle">Suite 2</div>
+            <div class="shopItemPrice">$40</div>
+            <div class="shopItemBuy" data-val="40" data-name="Suite 2">ADD TO CART +</div>
+        </div>
+    </div>
+    <div class="shopItem">
+        <img class="imgShopItem" src="../images/men_3.jpg" title="Shop Item">
+        <div class="shopItemInfo">
+            <div class="shopItemTitle">Suite 3</div>
+            <div class="shopItemPrice">$60</div>
+            <div class="shopItemBuy" data-val="60" data-name="Suite 3">ADD TO CART +</div>
+        </div>
+    </div>
 </div>
 
+</div>
+
+<!-- --------------------- CHILDREN COLLECTION -------------------------------------------- -->
+<div id="children_collection" class="collection hidden">
+
+    <div class="shopItem">
+        <img class="imgShopItem" src="../images/children_1.jpg" title="Shop Item">
+        <div class="shopItemInfo">
+            <div class="shopItemTitle">Children 1</div>
+            <div class="shopItemPrice">$30</div>
+            <div class="shopItemBuy" data-val="30" data-name="Suite 1">ADD TO CART +</div>
+        </div>
+    </div>
+    <div class="shopItem">
+        <img class="imgShopItem" src="../images/children_2.jpg" title="Shop Item">
+        <div class="shopItemInfo">
+            <div class="shopItemTitle">Children 2</div>
+            <div class="shopItemPrice">$40</div>
+            <div class="shopItemBuy" data-val="40" data-name="Suite 2">ADD TO CART +</div>
+        </div>
+    </div>
+    <div class="shopItem">
+        <img class="imgShopItem" src="../images/children_3.jpg" title="Shop Item">
+        <div class="shopItemInfo">
+            <div class="shopItemTitle">Children 3</div>
+            <div class="shopItemPrice">$60</div>
+            <div class="shopItemBuy" data-val="60" data-name="Suite 3">ADD TO CART +</div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
 
 <div id="social_logos">
     <svg width="292" height="195" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="custom-icon">
@@ -336,6 +487,6 @@
     </svg>
     </div>
 
-
+</div>
 </body>
 </html>

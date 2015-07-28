@@ -6,7 +6,7 @@
     -webkit-box-sizing:border-box;
     -moz-box-sizing:border-box;
     box-sizing:border-box;
-    background: #fffddd;
+    /*background: #fffddd;*/
     text-align: center;
     z-index: 40;
 }
@@ -22,8 +22,8 @@
     height: auto;
     list-style: none;
     float: left;
-    padding:0px;
-    margin:0px;
+    padding:0;
+    margin:0;
 }
 #image_slider li{
     position: relative;
@@ -41,11 +41,11 @@
 }
 #prev{
     background: #ffa687 url('../images/prev.png') no-repeat center;
-    left: 0px;
+    left: 0;
 }
 #next{
     background: #ffa687 url('../images/next.png') no-repeat center;
-    right: 0px;
+    right: 0;
 }
 #pager{
     list-style: none;

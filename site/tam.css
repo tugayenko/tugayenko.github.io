@@ -12,7 +12,6 @@ body, html{
 
 #top_black{
    /* display: block;*/
-    float: top;
     color: #fff;
     background: #000;
     height: 30px;
@@ -21,10 +20,9 @@ body, html{
 }
 #top_white{
     /*display: table-cell;*/
-    float: top;
     font: normal 16px arial;
     color: #000;
-    background: #fffddd;
+   /* background: #fffddd;*/
     height: 106px;
     width: 100%;
     /*vertical-align: middle;*/
@@ -43,6 +41,9 @@ body, html{
     border-left: 1px solid #ffffff;
     border-right: 1px solid #ffffff;
     padding: 0px 5px;
+}
+div#top_account:hover{
+    cursor: pointer;
 }
 #top_currency{
     position:absolute;
@@ -66,6 +67,7 @@ body, html{
     top:43px;
     width:200px;
     float: right;
+    color: #ffa687;
 }
 /* ----------------------------------------------------- */
 
@@ -136,4 +138,56 @@ body, html{
 
 #social_logos{
     float: right;
+}
+
+div#social_logos:hover{
+    cursor: pointer;
+}
+
+.collection{
+    /*background: #ffa687;*/
+    height:530px;
+    margin-top: 30px;
+}
+.collection.visible{
+    display: block;
+}
+.collection.hidden{
+    display: none;
+}
+
+div.shopItem{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 310px;
+    height: 532px;
+    margin:0px 13px;
+}
+.imgShopItem{
+    width:310px;
+    height:530px;
+}
+.shopItemInfo{
+    position: absolute;
+    top: 395px;
+    left:55px;
+    background:#f9f5f4;
+    height: 137px;
+    width:200px;
+}
+div.shopItemInfo > div{
+    /*float:left;*/
+    margin-left: auto;
+    margin-right: auto;
+    width:200px;
+    height: 45px;
+    font-size: 18pt;
+    /*background:#f9f5f4;*/
+}
+div.shopItemBuy{
+    background:#ffa687;
+    border-bottom: 2px;
+    border-color: orange;
+    cursor: pointer;
 }
