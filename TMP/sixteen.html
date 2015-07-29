@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <script type="text/javascript" src="http://kassa.2show.mobi/javascripts/kassa.js"></script>
 </head>
 <body>
-<iframe src="http://kassa.2show.mobi/picker/widget?partner_site=http%3A%2F%2Fsixteenplus.kiev.ua&amp;amp;partner_id=162&amp;amp;exclusive_show=114004&amp;amp;use_method=infront" id="2show_iframe" style="width:100%; height:702px; display: block; position: absolute;" scrolling="no" allowtransparency="true" onload="" frameborder="0"></iframe>
+<a title="Купить билеты онлайн" onclick="show2_show(162,[['exclusive_show','114004']]);" href="javascript: return false;"><img src="ссылка на картинку кнопки" alt="купить билеты онлайн"></a>
+<button value="Вызов в отдельном окне"
+        onclick="show2_show(162,[['exclusive_show', '114004']]);">Пример вызова виджета в отдельном окне</button>
+<hr>
+<iframe src="http://kassa.2show.mobi/picker/widget?partner_site=http%3A%2F%2Fsixteenplus.kiev.ua&amp;amp;partner_id=162&amp;amp;exclusive_show=114004&amp;amp;use_method=inside" id="2show_iframe"
+        style="width:100%; height:600px; display: block; position: absolute;" scrolling="no" allowtransparency="true" onload="" frameborder="0"></iframe>
+
 </body>
 </html>
