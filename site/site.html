@@ -93,6 +93,29 @@
             document.getElementById("basketCost").innerHTML="$" + totalCost;
         }
 
+        function addBlackShopIt(){
+            var node = document.createElement("div");
+            node.className = "shopIt";
+            var itemCost = 0;
+            var datasetVals = this.getElementsByClassName("shopItemBuy");
+            if(datasetVals != undefined) {
+                itemCost = datasetVals[0].dataset.val;
+            }
+            node.dataset.val = itemCost;
+            node.onclick = addToCart;
+            var textNode = document.createElement("span");
+            textNode.innerHTML = "Shop it";
+            node.appendChild(textNode);
+            this.appendChild(node);
+        }
+
+        function delBlackShopIt(){
+            var node = this.getElementsByClassName("shopIt");
+            if(node != undefined) {
+                this.removeChild(node[0]);
+            }
+        }
+
         function getCookie(cookieName) {
             var allcookies = document.cookie;
             var pos = allcookies.indexOf(cookieName + "=");
@@ -116,6 +139,13 @@
                 btnsBuy[i].onclick =addToCart;
             }
             showCartFromCookie();
+
+            //set onmouseover for item
+            var btnsBuy = document.getElementsByClassName("shopItem");
+            for(var i=0; i<btnsBuy.length; i++){
+                btnsBuy[i].onmouseenter =addBlackShopIt;
+                btnsBuy[i].onmouseleave =delBlackShopIt;
+            }
         }
     </script>
 </head>

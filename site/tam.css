@@ -191,3 +191,27 @@ div.shopItemBuy{
     border-color: orange;
     cursor: pointer;
 }
+
+.shopIt {
+    display: block;
+    position:absolute;
+    top:250px;
+    left:100px;
+    float: left;
+    width: 100px;
+    height: 100px;
+    /*line-height: 6px;*/
+    background-color: #000;
+    color:#fff;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+.shopIt span{
+    position:relative;
+    top:40px;
+}
+/*
+<div class="shopIt" onclick=""><span>Shop it</span></div>*/
